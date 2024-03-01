@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites errors="0"
-            failures="0"
-            tests="2">
+            failures="2"
+            tests="4">
 
   <testsuite name="dashboardActivityFunctionality"
-    errors="0" failures="0" hostname="" id="" package="dashboardActivityFunctionality" skipped="0"
-    tests="2" time="16.11" timestamp="">
+    errors="0" failures="2" hostname="" id="" package="dashboardActivityFunctionality" skipped="0"
+    tests="4" time="15.19" timestamp="">
   
-    <testcase name="Verify successful login with valid credentials" classname="dashboardActivityFunctionality" time="5.548" assertions="1">
+    <testcase name="Verify successful login with valid credentials" classname="dashboardActivityFunctionality" time="1.496" assertions="1">
 
     
     </testcase>
   
-    <testcase name="my activity" classname="dashboardActivityFunctionality" time="0.4480" assertions="1">
+    <testcase name="my activity" classname="dashboardActivityFunctionality" time="1.891" assertions="1">  <failure message="wait for visibility - expected &#34;visible&#34; but got: &#34;not found&#34; (563ms)">    at DescribeInstance.&lt;anonymous&gt; (/home/knoldus/Desktop/leaderBOard/test/dashboardActivityFunctionality.js:21:13)</failure>
+
+    
+    </testcase>
+  
+    <testcase name="Verify add a contribution button is visible" classname="dashboardActivityFunctionality" time="2.089" assertions="0">
+    </testcase>
+  
+    <testcase name="Verify points" classname="dashboardActivityFunctionality" time="0.06100" assertions="1">  <failure message="browser.scrollToElement is not a function">TypeError: browser.scrollToElement is not a function
+    at DescribeInstance.&lt;anonymous&gt; (/home/knoldus/Desktop/leaderBOard/test/dashboardActivityFunctionality.js:33:13)</failure>
 
     
     </testcase>
