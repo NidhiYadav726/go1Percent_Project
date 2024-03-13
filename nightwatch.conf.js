@@ -64,7 +64,7 @@ module.exports = {
         type: 'nightwatch',
 
         // define mocha specific options
-        options : {
+        options :{          
           ui: 'bdd',
           reporter: 'list'
         }

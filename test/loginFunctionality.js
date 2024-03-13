@@ -1,8 +1,8 @@
 const loginPage = browser.page.loginPage();
 
-describe("website main elements", function () {
+describe("Login Page", function () {
   before(function (browser) {
-    const login = browser.page.loginPage();
+    const loginPage = browser.page.loginPage();
     loginPage.navigate();
     loginPage.maximizeWindow();
   });
@@ -11,57 +11,59 @@ describe("website main elements", function () {
     browser.end();
   });
 });
-it("Verify Go1Percent logo, carousel images, carousel captions and footer message", function (browser) {
-  const login = browser.page.loginPage();
-  login.pageElements();
+it("Verify Go1Percent logo, carousel images, carousel caption and the footer message",function() {
+  loginPage
+    .assert.visible('@goLogo', "Go logo present")   
+    .assert.containsText('@goLogo', 'GO')     
+    .assert.visible('@onePercentLogo',"1% logo present")  
+    .assert.containsText('@onePercentLogo','1%')    
+    .assert.visible('@carouselImages','Caousel images are visible')    
+    .assert.visible('@carouselCaption',"Get 1% Better Everyday The Nashtech leaderboard tries to give engineers cue to keep improving on a daily basis.")      
+    .assert.visible('@footerMessage',"Footer message is visible")  
+    .assert.containsText('@footerMessage','Made with at Nashtech')
+  
 });
-it('Verify carousel tag line with text"Get 1% Better Everyday "is displayed', function (browser) {
-  const login = browser.page.loginPage();
-  login.carouselTagLine();
-});
-
-it("Verify that carousel image changes while clicking on carousel button", function (browser) {
-  const login = browser.page.loginPage();
-  login.carouselImagesVariation();
-  browser.assert.elementPresent("#myCarousel>div>div:nth-child(2)");
-});
-
-it('Verify login page heading contains text "Sign in to Go 1%"', function (browser) {
-  const login = browser.page.loginPage();
-  login.loginHeaderText();
+it('Verify that tag line with text "Get 1% Better Everyday" is displayed', function () {
+  loginPage.expect.element('@tagLine').text.to.contain('Get 1% Better Everyday'); 
+ 
 });
 
-it("Verify specific text between login options is present", function (browser) {
-  const login = browser.page.loginPage();
-  login.loginSpecificText();
+it("Verify that carousel image changes while clicking on carousel button", function() {
+  localStorageloginPage.carouselImagesVariation();
+  loginPage.assert.elementPresent('@carouselImage2');
 });
 
-it("Verify microsoft logo redirects to microsoft login page", function (browser) {
-  const login = browser.page.loginPage();
-  login.microsoftIcon();
-  browser.assert.urlContains("login.microsoftonline.com/");
+it('Verify that login page heading contains text "Sign in to Go 1%" is displayed', function () {
+  loginPage.expect.element('@headerText').text.to.equal('Sign in to Go 1%'); 
+  
+});
+
+it("Verify that specific text between login options is present on the web page ", function () {
+  loginPage
+    .assert.visible('@specificText',"Specific text between login options is visible") 
+    .assert.containsText('@specificText',"or do it via E-mail")
+
+});
+
+it("Verify that clicking on the Microsoft logo redirects to the Microsoft login page", function(browser){
+  loginPage.waitForElementPresent('@microsoftLogo', 5000, 'Microsoft icon present') 
+  loginPage.microsoftIcon();
+  browser.assert.urlContains('login.microsoftonline.com/');
   browser.back();
 });
 
-it("Verify Remember Me checkbox is selected during login", function (browser) {
-  const login = browser.page.loginPage();
-  login.rememberMeCheckBox();
-  //browser.waitForElementVisible('span.checkmark', 5000, 'Remember Me checkbox is visible');
-  // browser.expect.element('span.checkmark').to.be.selected;
+it("Verify remember me checkbox is selected during login", function (browser){
+  loginPage.rememberMeCheckBox();
+  browser.expect.element('#rememberMe').to.be.selected.before(100)
+  browser.expect.element('span.checkmark').to.be.selected;
 });
 
-it("Verify the forgot password functionality", function (browser) {
-  const login = browser.page.loginPage();
-  login.forgotPasswordFunctionality("abcd");
-  browser.expect
-    .element(".pf-c-alert__title.kc-feedback-text")
-    .text.to.contains(
-      "You should receive an email shortly with further instructions.",
-    ); //forgotPasswordMessage
+it("Verify the forgot Password functionality", function () {
+  loginPage.forgotPasswordFunctionality("abcd");
+  loginPage.expect.element("@forgotPasswordMessage").text.to.contains( "You should receive an email shortly with further instructions."); //forgotPasswordMessage
 });
-it("Verify Terms of Use Page", function (browser) {
-  const login = browser.page.loginPage();
-  login.termsOfUseFunctionality();
+it(" Verify clicking on the Terms of Use link opens a new page with the terms of use", function (browser){
+  loginPage.termsOfUseFunctionality();
   browser.windowHandles(function (result) {
     const originalWindowDisplayed = result.value[0];
     const handle = result.value[1];
@@ -69,10 +71,8 @@ it("Verify Terms of Use Page", function (browser) {
     this.switchWindow(originalWindowDisplayed);
   });
 });
-
-it("Verify Privacy Policy Page", function (browser) {
-  const login = browser.page.loginPage();
-  login.privacyPolicyFunctionality();
+it("Verify clicking on the Privacy policy link opens a new page with the privacy policy Verify Privacy Policy Page", function(browser) {
+  loginPage.privacyPolicyFunctionality();
   browser.windowHandles(function (result) {
     const originalWindowDisplayed = result.value[0];
     const handle = result.value[2];
@@ -81,18 +81,12 @@ it("Verify Privacy Policy Page", function (browser) {
   });
 });
 
-it("Verify login with invalid credentials with an alert message", function (browser) {
-  const login = browser.page.loginPage();
-  login.unsuccessfulLogin("sdfg", "dfer");
-  browser.expect
-    .element("#input-error")
-    .text.to.contains("Invalid username or password"); //invalidLoginErrorMessage
+it(" Verify that login fails with invalid credentials and an alert message is displayed", function () {
+  loginPage.unsuccessfulLogin("sdfg", "dfer");
+  loginPage.expect.element("@loginErrorMessage").text.to.contains("Invalid username or password");
 });
 
 it("Verify successful login with valid credentials", function (browser) {
-  const login = browser.page.loginPage();
-  login.successfulLogin("testadmin", "testadmin");
-  browser.assert.urlEquals(
-    "https://nashtechglobal.qa.go1percent.com/my-dashboard",
-  );
+  loginPage.successfulLogin("testemployee", "testemployee");
+  browser.assert.urlEquals("https://nashtechglobal.qa.go1percent.com/my-dashboard");
 });

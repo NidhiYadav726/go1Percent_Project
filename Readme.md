@@ -49,5 +49,8 @@ dashboardActivityFunctionality.js : contains the assertions and test cases to ve
 TEST CASES :
 1) Verify Login Functionality : perform succesful login and redirect to dashbard page
 2) Verify visibility of all the activities: verifies that all the activities are visible when user is on the activities page.
+3) Verify appropriate points should be added according to the contribution: verifies points for the activity 1 is visible.
+4) Verify that the user can able to see the time the activity was done on all Activity: verifes that the timeline for all activities are visible.
+5) Verify user should see Add a contribution button when no contribution has been added by the user: verifyies that add a contribution button is visible.
 
 RUN TEST FILE: npx nightwatch test/dashboardActivityFunctionality.js

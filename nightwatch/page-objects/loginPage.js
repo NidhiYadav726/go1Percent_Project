@@ -2,89 +2,146 @@ module.exports = {
     url: 'https://nashtechglobal.qa.go1percent.com/',
 
     elements:{
-         carouselButton1: 'li[data-target="#myCarousel"][data-slide-to="1"]',
-     },
+        usernameInputField : {
+            selector: '#username',
+            locatorStrategy: 'css selector',
+        },
+        passwordInputField  :{
+            selector: '#password',
+            locatorStrategy:'css selector',
+        },
+        loginButton: {
+            selector: '#kc-login',
+            locatorStrategy:'css selector',
+        },
+        goLogo: {
+            selector: '.go1up-logo',
+            locatorStrategy:'css selector',
+        },
+        onePercentLogo :{
+            selector: '.onepercenet-logo',
+            locatorStrategy: 'css selector',
+        },
+        carouselImages :{
+            selector: '#myCarousel>div>div:nth-child(1)',
+            locatorStrategy: 'css selector',
+        },
+        carouselCaption: {
+            selector: '#myCarousel > div > div:nth-child(1) > div > p',
+            locatorStrategy: 'css selector',
+        },
+        footerMessage: {
+            selector: 'div.tagsss,div.tagsss i',
+            locatorStrategy: 'css selector',
+        },
+        tagLine: {
+            selector: '#myCarousel > div > div:nth-child(1) > div h3',
+            locatorStrategy: 'css selector,'
+        },
+        carouselButton:{
+            selector: 'li[data-target="#myCarousel"][data-slide-to="1"]',
+            locatorStrategy:'css selector',
+        },
+        carouselImage2:{
+            selector: '#myCarousel>div>div:nth-child(2)',
+            locatorStrategy :'css selector',
+        },
+        headerText: {
+            selector: '#kc-page-title',
+            locatorStrategy: 'css selector',
+        },
+        specificText :{
+            selector: '#kc-social-providers h4',
+            locatorStrategy: 'css selector',
+        },
+        microsoftLogo: {
+            selector: '#social-oidc',
+            locatorStrategy:'css selector',
+        },
+        rememberMe:{
+            selector: '.checkmark',
+            locatorStrategy: 'css selector',
+        },
+        forgotPasswordButton:{
+            selector: '.forget-pass',
+            locatorStrategy: 'css selector',
+        },
+        forgotPasswordSubmitButton:{
+            selector: '#kc-form-buttons > input',
+            locatorStrategy:'css selector',
+        },
+        termsOfUse:{
+            selector: '.term-privacy > a[href*="terms-of-use"]',
+            locatorStrategy:'css selector',
+        },
+        privacyPolicy:{
+            selector: '.term-privacy > a[href*="privacy-policy"]',
+            locatorStrategy:'css selector',
+        },
+        loginErrorMessage:{
+            selector:'#input-error',
+            locatorStrategy:'css selector',
+        },
+        forgotPasswordMessage:{
+            selector: '.pf-c-alert__title.kc-feedback-text',
+            locatorStrategy:'css selector',
+        },
+    },
+
 
     commands: [
+        
         {
-            pageElements: function(){
-                browser
-                    .assert.visible('div.go1up-logo', "Go logo present")    //goLogo
-                    .assert.containsText('div.go1up-logo', 'GO')     
-                    .assert.visible('.onepercenet-logo',"1% logo present")  //1%Logo
-                    .assert.containsText('.onepercenet-logo','1%')    
-                    .assert.visible('#myCarousel>div>div:nth-child(1)','Caousel images are visible')    //carouselImages
-                    .assert.visible('#myCarousel > div > div:nth-child(1) > div > p',"Get 1% Better Everyday The Nashtech leaderboard tries to give engineers cue to keep improving on a daily basis.")      //Carouselcaption
-                    .assert.visible('div.tagsss,div.tagsss i',"Footer message is visible")   //footerMessage
-                    .assert.containsText('div.tagsss,div.tagsss i','Made with at Nashtech')
-            },
 
-            carouselTagLine: function() {
+            carouselImagesVariation: async function(){
                 browser
-                    .expect.element('#myCarousel > div > div:nth-child(1) > div h3').text.to.contain('Get 1% Better Everyday'); //TagLine 
-                   
-             },
-            carouselImagesVariation: function(){
-                browser
-                    .click('li[data-target="#myCarousel"][data-slide-to="1"]')  //carouselButton1
+                    .click('@carouselButton')  
                     
-            },
-
-            loginHeaderText: function() {
-                browser
-                    .expect.element('#kc-page-title').text.to.equal('Sign in to Go 1%'); //headerText
-
-            },
-
-            loginSpecificText: function(){
-                browser
-                    .assert.visible('#kc-social-providers h4',"Specific text between login options is visible") //specificText
-                    .assert.containsText('#kc-social-providers h4',"or do it via E-mail")
-
             },
 
             microsoftIcon : function() {
                 browser
-                    .waitForElementPresent('#social-oidc', 5000, 'Microsoft icon present') //microsoftLogo
-                    .click('#social-oidc')
+                   
+                    .click('@microsoftLogo')
             },
             rememberMeCheckBox: function(){
                 browser
-                    .click('span.checkmark')  //rememberMeCheckbox
+                    .click('@rememberMe') 
             },
 
             forgotPasswordFunctionality : function(username){
                 browser
-                    .click('.forget-pass')   //forgotPasswordButton
-                    .setValue('#username', username)
-                    .click('#kc-form-buttons > input')  //forgotPasswordSubmitButton
+                    .click('@forgotPasswordButton')  
+                    .setValue('@usernameInputField', username)
+                    .click('@forgotPasswordSubmitButton')  
                     
 
             },
             termsOfUseFunctionality: function() {
                 browser
-                   .click('.term-privacy > a[href*="terms-of-use"]') //termsOfUse 
+                   .click('@termsOfUse') 
                    
             },
 
             privacyPolicyFunctionality : function(){
                 browser
-                    .click('.term-privacy > a[href*="privacy-policy"]') //privacyPolicy 
+                    .click('@privacyPolicy') 
 
             },
             unsuccessfulLogin : function(username,password) {
                 return this
-                    .setValue('#username', username)  //usernameInputField
-                    .setValue('#password',password)   //passwordInputFIeld
-                    .click('#kc-login')               //loginButton
+                    .setValue('@usernameInputField', username)  
+                    .setValue('@passwordInputField ',password)  
+                    .click('@loginButton')              
                      
             },
             successfulLogin : function(username,password) {
                 return this
-                    .setValue('#username', username)   //usernameInputField
-                    .setValue('#password',password)    //passwordInputFIeld
-                    .click('#kc-login')                //loginButton
+                    .setValue('@usernameInputField', username)  
+                    .setValue('@passwordInputField ',password)    
+                    .click('@loginButton')               
+                }
+            
             },
-        },
-    ],
-};
+        ],
+    };

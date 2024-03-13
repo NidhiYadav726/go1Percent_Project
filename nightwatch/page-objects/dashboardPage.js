@@ -15,11 +15,22 @@ module.exports = {
             selector: '#kc-login',
             locatorStrategy: 'css selector',
         },
-        activitiesBlock: {
-            selector: '.timeline.w-100.mx-1',
+        settingsButton: {
+            selector:'ul[class="navbar-nav justify-content-end"] app-dropdown-wrapper div[class="position-relative"] div[class="pt-2"] li[class="icon nav-item dropdown px-2 d-flex align-items-center justify-content-center"] a[class="nav-link text-body p-0 text-white"] div i[class="material-icons user-icon',
+            locatorStrategy:'css selector',
+        },
+        profile:{
+            selector: '.d-flex.py-1.mt-1',
             locatorStrategy: 'css selector',
         },
-        
+        allActivities: {
+            selector: '.set',
+            locatorStrategy: 'css selector',
+        },
+        addContributionButton:{
+            selector:'.addRewardBtn.px-2.mt-n1',
+            locatorStrategy:'css selector',
+        },
     },
 
 
@@ -29,8 +40,18 @@ module.exports = {
             return this
                 .setValue('@usernameInputField', username)  
                 .setValue('@passwordInputField',password)    
-                .click('@loginButton')               
+                            
             },
+        goToProfile: function(){
+            return this
+                .click('@settings button')
+                .click('@profile')
+        },
+        addContribution: function(){
+            return this
+               .click('@addContributionButton')
+        },
+        
         },
     ],
 }; 
