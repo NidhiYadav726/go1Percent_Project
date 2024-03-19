@@ -5,9 +5,9 @@
 
   <testsuite name="loginFunctionality"
     errors="2" failures="1" hostname="" id="" package="loginFunctionality" skipped="6"
-    tests="6" time="39.33" timestamp="">
+    tests="6" time="38.36" timestamp="">
   
-    <testcase name="Verify Go1Percent logo, carousel images, carousel caption and the footer message" classname="loginFunctionality" time="0.2260" assertions="8">
+    <testcase name="Verify Go1Percent logo, carousel images, carousel caption and the footer message" classname="loginFunctionality" time="1.815" assertions="8">
 
     
 
@@ -26,40 +26,40 @@
     
     </testcase>
   
-    <testcase name="Verify that tag line with text &#34;Get 1% Better Everyday&#34; is displayed" classname="loginFunctionality" time="0.02400" assertions="1">
+    <testcase name="Verify that tag line with text &#34;Get 1% Better Everyday&#34; is displayed" classname="loginFunctionality" time="0.02300" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Verify that carousel image changes while clicking on carousel button" classname="loginFunctionality" time="5.305" assertions="1">
+    <testcase name="Verify that carousel image changes while clicking on carousel button" classname="loginFunctionality" time="5.323" assertions="1">
 
     
     <error message="An error occurred while running .click() command on &lt;@carouselButton&gt;: Timed out while waiting for element &#34;@carouselButton&#34; with &#34;css selector&#34; to be present for 5000 milliseconds." type="error"><![CDATA[
     Error
     at Page.carouselImagesVariation (/home/knoldus/Desktop/leaderBOard/nightwatch/page-objects/loginPage.js:98:22)
-    at DescribeInstance.&lt;anonymous&gt; (/home/knoldus/Desktop/leaderBOard/test/loginFunctionality.js:32:14)
+    at DescribeInstance.&lt;anonymous&gt; (/home/knoldus/Desktop/leaderBOard/test/loginFunctionality.js:32:13)
     ]]></error>
     
     </testcase>
   
-    <testcase name="Verify that login page heading contains text &#34;Sign in to Go 1%&#34; is displayed" classname="loginFunctionality" time="0.02200" assertions="1">
+    <testcase name="Verify that login page heading contains text &#34;Sign in to Go 1%&#34; is displayed" classname="loginFunctionality" time="0.01900" assertions="1">
 
     
     </testcase>
   
-    <testcase name="Verify that specific text between login options is present on the web page " classname="loginFunctionality" time="0.04100" assertions="2">
+    <testcase name="Verify that specific text between login options is present on the web page " classname="loginFunctionality" time="0.04200" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="Verify that clicking on the Microsoft logo redirects to the Microsoft login page" classname="loginFunctionality" time="10.49" assertions="2">
+    <testcase name="Verify that clicking on the Microsoft logo redirects to the Microsoft login page" classname="loginFunctionality" time="10.56" assertions="2">
 
-      <failure message="Testing if the URL contains &#39;login.microsoftonline.com/&#39; in 5000ms - expected &#34;contains &#39;login.microsoftonline.com/&#39;&#34; but got: &#34;https://auth.go1percent.com/auth/realms/nashtech/protocol/openid-connect/auth?client_id=leaderboard-qa-ui&amp;redirect_uri=https%3A%2F%2Fnashtechglobal.qa.go1percent.com%2Fmy-dashboard&amp;state=63bba60c-71dd-40a3-896d-463a078259a4&amp;response_mode=fragment&amp;response_type=code&amp;scope=openid&amp;nonce=66c59a12-90c5-4ba3-a948-a05275bb8c29&#34; (5107ms)">    at DescribeInstance.&lt;anonymous&gt; (/home/knoldus/Desktop/leaderBOard/test/loginFunctionality.js:51:18)</failure>
+      <failure message="Testing if the URL contains &#39;login.microsoftonline.com/&#39; in 5000ms - expected &#34;contains &#39;login.microsoftonline.com/&#39;&#34; but got: &#34;https://auth.go1percent.com/auth/realms/nashtech/protocol/openid-connect/auth?client_id=leaderboard-qa-ui&amp;redirect_uri=https%3A%2F%2Fnashtechglobal.qa.go1percent.com%2Fmy-dashboard&amp;state=e4a72a75-0be1-4a5c-8a2e-1f550cbe80a6&amp;response_mode=fragment&amp;response_type=code&amp;scope=openid&amp;nonce=563b9766-4cd3-422f-abe5-f4dc311ff7f8&#34; (5167ms)">    at DescribeInstance.&lt;anonymous&gt; (/home/knoldus/Desktop/leaderBOard/test/loginFunctionality.js:51:18)</failure>
 
     
-    <error message="Testing if the URL contains [33m&#39;login.microsoftonline.com/&#39;[39m in 5000ms - expected [32m&#34;contains &#39;login.microsoftonline.com/&#39;&#34;[39m but got: [31m&#34;https://auth.go1percent.com/auth/realms/nashtech/protocol/openid-connect/auth?client_id=leaderboard-qa-ui&amp;redirect_uri=https%3A%2F%2Fnashtechglobal.qa.go1percent.com%2Fmy-dashboard&amp;state=63bba60c-71dd-40a3-896d-463a078259a4&amp;response_mode=fragment&amp;response_type=code&amp;scope=openid&amp;nonce=66c59a12-90c5-4ba3-a948-a05275bb8c29&#34;[39m [90m(5107ms)[39m" type="error"><![CDATA[
+    <error message="Testing if the URL contains [33m&#39;login.microsoftonline.com/&#39;[39m in 5000ms - expected [32m&#34;contains &#39;login.microsoftonline.com/&#39;&#34;[39m but got: [31m&#34;https://auth.go1percent.com/auth/realms/nashtech/protocol/openid-connect/auth?client_id=leaderboard-qa-ui&amp;redirect_uri=https%3A%2F%2Fnashtechglobal.qa.go1percent.com%2Fmy-dashboard&amp;state=e4a72a75-0be1-4a5c-8a2e-1f550cbe80a6&amp;response_mode=fragment&amp;response_type=code&amp;scope=openid&amp;nonce=563b9766-4cd3-422f-abe5-f4dc311ff7f8&#34;[39m [90m(5167ms)[39m" type="error"><![CDATA[
         at Proxy.&lt;anonymous&gt; (/home/knoldus/Desktop/leaderBOard/node_modules/nightwatch/lib/api/index.js:161:30)
     at DescribeInstance.&lt;anonymous&gt; (/home/knoldus/Desktop/leaderBOard/test/loginFunctionality.js:51:18)
     at Context.call (/home/knoldus/Desktop/leaderBOard/node_modules/nightwatch/lib/testsuite/context.js:515:35)
@@ -90,7 +90,7 @@
     ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
      30 | 
      31 | it(&#34;Verify that carousel image changes while clicking on carousel button&#34;, function() {
-     32 |    loginPage.carouselImagesVariation(); 
+     32 |   loginPage.carouselImagesVariation(); 
      33 |   loginPage.assert.elementPresent(&#39;@carouselImage2&#39;);
      34 | });
     ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -106,9 +106,9 @@
     Error location:
     /home/knoldus/Desktop/leaderBOard/test/loginFunctionality.js:50
     ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
-     48 | it(&#34;Verify that clicking on the Microsoft logo redirects to the Microsoft login page&#34;, function(){
-     49 |  loginPage.waitForElementPresent(&#39;@microsoftLogo&#39;, 5000, &#39;Microsoft icon present&#39;) 
-     50 |  loginPage.microsoftIcon(); 
+     48 | it(&#34;Verify that clicking on the Microsoft logo redirects to the Microsoft login page&#34;, function(browser){
+     49 |   loginPage.waitForElementPresent(&#39;@microsoftLogo&#39;, 5000, &#39;Microsoft icon present&#39;) 
+     50 |   loginPage.microsoftIcon(); 
      51 |   browser.assert.urlContains(&#39;login.microsoftonline.com/&#39;);
      52 |   browser.back();
     ––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––
