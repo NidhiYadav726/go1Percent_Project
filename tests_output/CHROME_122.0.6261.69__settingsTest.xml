@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="3">
+
+  <testsuite name="settingsTest"
+    errors="0" failures="0" hostname="" id="" package="settingsTest" skipped="0"
+    tests="3" time="11.06" timestamp="">
+  
+    <testcase name="Verify successful login with valid credentials" classname="settingsTest" time="0.6330" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="Verify user should be able to navigate Profile page through Settings button" classname="settingsTest" time="1.150" assertions="1">
+
+    
+    </testcase>
+  
+    <testcase name="Verify user should be able to see all fields in Profile Details page" classname="settingsTest" time="1.666" assertions="6">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+    
+
+  
+  </testsuite>
+</testsuites>
